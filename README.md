@@ -1,1 +1,1 @@
-# Chat App built using React, Redux, and Firebase.
+# Chat App built using React and Redux
