@@ -5,7 +5,7 @@ import Console from './Console';
 
 function MainPanel() {
   return (
-    <div className="eight wide column">
+    <div className="twelve wide column">
       <h1>MainPanel</h1>
       <div className="three row divided grid">
         <AddPeople />
