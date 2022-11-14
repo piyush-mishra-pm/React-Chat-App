@@ -1,6 +1,6 @@
 import Header from './components/Header';
 import MainPanel from './components/mainPanel/MainPanel';
-import SidePanel from './components/SidePanel';
+import SidePanel from './components/sidePanel/SidePanel';
 
 import './App.css';
 
