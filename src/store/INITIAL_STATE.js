@@ -52,7 +52,8 @@ export const SEED_CONVERSATIONS = [
         timestamp: 1667752793158,
       },
       {
-        message: 'Quite a message',
+        message:
+          'Quite a a very loong message. Who knows what all I need to type here. i hope it exceeds a line and still is properly formatted in sidepanel.',
         messageType: 'text',
         sender: 3,
         timestamp: 1667752786158,
@@ -60,7 +61,7 @@ export const SEED_CONVERSATIONS = [
     ],
   },
   {
-    conversationId: 2,
+    conversationId: 3,
     users: [1, 2],
     messages: [
       {
@@ -90,7 +91,249 @@ export const SEED_CONVERSATIONS = [
     ],
   },
   {
-    conversationId: 2,
+    conversationId: 4,
+    users: [1, 2],
+    messages: [
+      {
+        message: 'message text',
+        messageType: 'text',
+        sender: 1,
+        timestamp: 1667752786158,
+      },
+      {
+        messageType: 'join',
+        sender: 2,
+        timestamp: 1667752789000,
+      },
+      {
+        messageType: 'img',
+        imgAltText: 'My profile pic',
+        imgUrl:
+          'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
+        sender: 2,
+        timestamp: 1667752793158,
+      },
+      {
+        messageType: 'leave',
+        sender: 1,
+        timestamp: 1667752791158,
+      },
+    ],
+  },
+  {
+    conversationId: 5,
+    users: [1, 2, 3],
+    messages: [
+      {
+        message: 'message text',
+        messageType: 'text',
+        sender: 1,
+        timestamp: 1667752786158,
+      },
+      {
+        messageType: 'join',
+        sender: 1,
+        timestamp: 1667752789000,
+      },
+      {
+        messageType: 'leave',
+        sender: 2,
+        timestamp: 1667752791158,
+      },
+      {
+        messageType: 'img',
+        imgAltText: 'My profile pic',
+        imgUrl:
+          'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
+        sender: 2,
+        timestamp: 1667752793158,
+      },
+    ],
+  },
+  {
+    conversationId: 6,
+    users: [1, 2],
+    messages: [
+      {
+        messageType: 'join',
+        sender: 2,
+        timestamp: 1667752789000,
+      },
+      {
+        messageType: 'leave',
+        sender: 1,
+        timestamp: 1667752791158,
+      },
+      {
+        messageType: 'img',
+        imgAltText: 'My profile pic',
+        imgUrl:
+          'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
+        sender: 2,
+        timestamp: 1667752793158,
+      },
+      {
+        message:
+          'Quite a a very loong message. Who knows what all I need to type here. i hope it exceeds a line and still is properly formatted in sidepanel.',
+        messageType: 'text',
+        sender: 3,
+        timestamp: 1667752786158,
+      },
+    ],
+  },
+  {
+    conversationId: 7,
+    users: [1, 2],
+    messages: [
+      {
+        message: 'A long message text goes here',
+        messageType: 'text',
+        sender: 1,
+        timestamp: 1667752786158,
+      },
+      {
+        messageType: 'leave',
+        sender: 1,
+        timestamp: 1667752791158,
+      },
+      {
+        messageType: 'img',
+        imgAltText: 'My profile pic',
+        imgUrl:
+          'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
+        sender: 2,
+        timestamp: 1667752793158,
+      },
+      {
+        messageType: 'join',
+        sender: 2,
+        timestamp: 1667752789000,
+      },
+    ],
+  },
+  {
+    conversationId: 8,
+    users: [1, 2],
+    messages: [
+      {
+        message: 'message text',
+        messageType: 'text',
+        sender: 1,
+        timestamp: 1667752786158,
+      },
+      {
+        messageType: 'join',
+        sender: 2,
+        timestamp: 1667752789000,
+      },
+      {
+        messageType: 'img',
+        imgAltText: 'My profile pic',
+        imgUrl:
+          'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
+        sender: 2,
+        timestamp: 1667752793158,
+      },
+      {
+        messageType: 'leave',
+        sender: 1,
+        timestamp: 1667752791158,
+      },
+    ],
+  },
+  {
+    conversationId: 9,
+    users: [1, 2, 3],
+    messages: [
+      {
+        message: 'message text',
+        messageType: 'text',
+        sender: 1,
+        timestamp: 1667752786158,
+      },
+      {
+        messageType: 'join',
+        sender: 1,
+        timestamp: 1667752789000,
+      },
+      {
+        messageType: 'leave',
+        sender: 2,
+        timestamp: 1667752791158,
+      },
+      {
+        messageType: 'img',
+        imgAltText: 'My profile pic',
+        imgUrl:
+          'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
+        sender: 2,
+        timestamp: 1667752793158,
+      },
+    ],
+  },
+  {
+    conversationId: 10,
+    users: [1, 2],
+    messages: [
+      {
+        messageType: 'join',
+        sender: 2,
+        timestamp: 1667752789000,
+      },
+      {
+        messageType: 'leave',
+        sender: 1,
+        timestamp: 1667752791158,
+      },
+      {
+        messageType: 'img',
+        imgAltText: 'My profile pic',
+        imgUrl:
+          'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
+        sender: 2,
+        timestamp: 1667752793158,
+      },
+      {
+        message:
+          'Quite a a very loong message. Who knows what all I need to type here. i hope it exceeds a line and still is properly formatted in sidepanel.',
+        messageType: 'text',
+        sender: 3,
+        timestamp: 1667752786158,
+      },
+    ],
+  },
+  {
+    conversationId: 11,
+    users: [1, 2],
+    messages: [
+      {
+        message: 'A long message text goes here',
+        messageType: 'text',
+        sender: 1,
+        timestamp: 1667752786158,
+      },
+      {
+        messageType: 'leave',
+        sender: 1,
+        timestamp: 1667752791158,
+      },
+      {
+        messageType: 'img',
+        imgAltText: 'My profile pic',
+        imgUrl:
+          'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
+        sender: 2,
+        timestamp: 1667752793158,
+      },
+      {
+        messageType: 'join',
+        sender: 2,
+        timestamp: 1667752789000,
+      },
+    ],
+  },
+  {
+    conversationId: 12,
     users: [1, 2],
     messages: [
       {

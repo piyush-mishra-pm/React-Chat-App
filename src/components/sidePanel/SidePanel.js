@@ -10,13 +10,13 @@ function SidePanel() {
   function renderConversations() {
     const sidePanelConversations = getSidepanelConversationList(conversations, users);
     return (
-      <ul>
+      <div className="ui relaxed animated celled list">
         {sidePanelConversations.map((item, index) => (
-          <li key={index}>
+          <React.Fragment>
             <SidePanelElement message={item.message} users={item.users} />
-          </li>
+          </React.Fragment>
         ))}
-      </ul>
+      </div>
     );
   }
 
