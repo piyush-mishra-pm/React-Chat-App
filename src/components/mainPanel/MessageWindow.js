@@ -1,6 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 function MessageWindow() {
+  const currentConversationId = useSelector((state) => state.currentConversationId);
+
   function renderList() {
     return (
       <ul>

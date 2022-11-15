@@ -21,35 +21,10 @@ const SidePanelElement = (props) => {
     );
   };
 
-  // <div class="ui celled list">
-  //   <div class="item">
-  //     <img class="ui avatar image" src="/images/avatar/small/helen.jpg">
-  //     <div class="content">
-  //       <div class="header">Snickerdoodle</div>
-  //       An excellent companion
-  //     </div>
-  //   </div>
-  //   <div class="item">
-  //     <img class="ui avatar image" src="/images/avatar/small/daniel.jpg">
-  //     <div class="content">
-  //       <div class="header">Poodle</div>
-  //       A poodle, its pretty basic
-  //     </div>
-  //   </div>
-  //   <div class="item">
-  //     <img class="ui avatar image" src="/images/avatar/small/daniel.jpg">
-  //     <div class="content">
-  //       <div class="header">Paulo</div>
-  //       He's also a dog
-  //     </div>
-  //   </div>
-  // </div>
-
   const renderUserNames = () => {
     const concatenatedUserNames = props.users
       .reduce((previousValue, currentValue) => previousValue + ', ' + currentValue.userName, '')
       .slice(2);
-    console.log(concatenatedUserNames);
     return <p>{concatenatedUserNames}</p>;
   };
 
