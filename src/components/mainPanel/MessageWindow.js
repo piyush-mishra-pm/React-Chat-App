@@ -1,55 +1,27 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-function MessageWindow() {
-  const currentConversationId = useSelector((state) => state.currentConversationId);
+import { getUserFromUserId } from '../../utils/userUtils';
+import MessageElement from './MessageElement';
 
-  function renderList() {
+function MessageWindow() {
+  const currentConversationId = useSelector((state) => state.current.currentConversationId);
+  const conversations = useSelector((state) => state.conversations);
+  const users = useSelector((state) => state.users);
+
+  function renderCurrentConversation() {
+    const currentConversation = conversations.find(
+      (conversation) => conversation.conversationId === currentConversationId
+    );
+    console.log(currentConversation);
     return (
-      <ul>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-        <li>First</li>
-      </ul>
+      <div className="ui very relaxed list">
+        {currentConversation.messages.map((message, index) => {
+          let userId = message.sender;
+          let userDetails = getUserFromUserId(userId, users);
+          return <MessageElement userDetails={userDetails} message={message} key={index} />;
+        })}
+      </div>
     );
   }
 
@@ -70,7 +42,7 @@ function MessageWindow() {
       }}
     >
       <h1>MessageWindow</h1>
-      {renderList()}
+      {renderCurrentConversation()}
     </div>
   );
 }

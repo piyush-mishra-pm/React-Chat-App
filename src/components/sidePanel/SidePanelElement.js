@@ -37,6 +37,6 @@ const SidePanelElement = (props) => {
       </div>
     </div>
   );
-};;;;;;;;;
+};
 
 export default SidePanelElement;

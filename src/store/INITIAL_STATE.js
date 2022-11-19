@@ -4,7 +4,8 @@ export const SEED_CONVERSATIONS = [
     users: [1, 2, 3],
     messages: [
       {
-        message: 'message text',
+        message:
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
         messageType: 'text',
         sender: 1,
         timestamp: 1667752786158,
@@ -12,12 +13,12 @@ export const SEED_CONVERSATIONS = [
       {
         messageType: 'join',
         sender: 1,
-        timestamp: 1667752789000,
+        timestamp: 1667752889000,
       },
       {
         messageType: 'leave',
         sender: 2,
-        timestamp: 1667752791158,
+        timestamp: 1667752991158,
       },
       {
         messageType: 'img',
@@ -25,7 +26,7 @@ export const SEED_CONVERSATIONS = [
         imgUrl:
           'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
         sender: 2,
-        timestamp: 1667752793158,
+        timestamp: 1668840536000,
       },
     ],
   },
@@ -246,7 +247,8 @@ export const SEED_CONVERSATIONS = [
     users: [1, 2, 3],
     messages: [
       {
-        message: 'message text',
+        message:
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
         messageType: 'text',
         sender: 1,
         timestamp: 1667752786158,
