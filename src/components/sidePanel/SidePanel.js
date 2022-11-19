@@ -12,9 +12,7 @@ function SidePanel() {
     return (
       <div className="ui relaxed animated celled list">
         {sidePanelConversations.map((item, index) => (
-          <React.Fragment key={index}>
-            <SidePanelElement message={item.message} users={item.users} />
-          </React.Fragment>
+          <SidePanelElement message={item.message} users={item.users} key={index} index={index} />
         ))}
       </div>
     );

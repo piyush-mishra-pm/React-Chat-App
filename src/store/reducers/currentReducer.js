@@ -6,6 +6,7 @@ const currentReducer = (state = CURRENT_USER_STATE, { type, payload }) => {
     case ACTION_TYPES.CONVERSATION_CHANGE_CURRENT:
       return {
         ...state,
+        currentConversationId: payload,
       };
 
     default:
