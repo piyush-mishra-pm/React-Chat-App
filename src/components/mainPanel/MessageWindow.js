@@ -13,7 +13,6 @@ function MessageWindow() {
     const currentConversation = conversations.find(
       (conversation) => conversation.conversationId === currentConversationId
     );
-    console.log(currentConversation);
     return (
       <div className="ui very relaxed list">
         {currentConversation.messages.map((message, index) => {

@@ -18,7 +18,6 @@ export const tsToDateTime1d1hSensitive = (timestamp) => {
   if (tsDiff < 0) return 'Future date!';
 
   const DAY_IN_MS = 60 * 60 * 24 * 1000;
-  console.log(tsDiff / DAY_IN_MS, timestamp, tsDiff);
   if (tsDiff / DAY_IN_MS > 1) {
     return new Intl.DateTimeFormat('en-GB', { dateStyle: 'short', timeStyle: 'short' }).format(new Date(timestamp));
   }
