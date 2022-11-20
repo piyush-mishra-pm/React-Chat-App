@@ -1,15 +1,11 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-//import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-
-import 'react-toastify/dist/ReactToastify.css';
-
-import history from '../../history';
 
 import ACTION_TYPES from '../../store/ACTION_TYPES';
 
+import 'react-toastify/dist/ReactToastify.css';
 import Modal from '../Modal';
 
 function SendImage() {
@@ -18,6 +14,7 @@ function SendImage() {
   const dispatch = useDispatch();
   const [isImgUrlValid, setIsImgUrlValid] = useState();
   const [imgUrl, setImgUrl] = useState('');
+  const history = useHistory();
 
   // Dispatch, only if valid image:
   const dispatchImgUrl = useCallback(
@@ -37,7 +34,7 @@ function SendImage() {
         },
       });
     },
-    [dispatch, isImgUrlValid]
+    [dispatch, isImgUrlValid, currentUserState]
   );
   const toastImgUrlWrong = () => toast.error("Image url regex doesn't match!");
   const toastImgError = () => toast.error("Image can't be loaded. Check url.");

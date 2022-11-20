@@ -6,7 +6,6 @@ import MainPanel from './components/mainPanel/MainPanel';
 import SidePanel from './components/sidePanel/SidePanel';
 import SendImage from './components/mainPanel/SendImage';
 import history from './history';
-
 import './App.css';
 
 function App() {
