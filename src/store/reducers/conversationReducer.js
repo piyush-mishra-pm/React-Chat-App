@@ -7,9 +7,7 @@ export default function conversationReducer(state = SEED_CONVERSATIONS, { type, 
       return helper(state, payload);
 
     case ACTION_TYPES.MESSAGE_IMG:
-      return {
-        ...state,
-      };
+      return helper(state, payload);
 
     case ACTION_TYPES.CONVERSATION_JOIN:
       return {

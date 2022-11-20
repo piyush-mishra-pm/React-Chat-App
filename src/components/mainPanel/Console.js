@@ -1,5 +1,6 @@
 import React, { useRef, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import ACTION_TYPES from '../../store/ACTION_TYPES';
 
@@ -9,14 +10,16 @@ function Console() {
   const dispatch = useDispatch();
 
   const dispatchTextMessage = useCallback(
-    (message) =>
+    (message) => {
+      if (message.length === 0) return;
       dispatch({
         type: ACTION_TYPES.MESSAGE_TEXT,
         payload: {
           currentConversationId: currentState.currentConversationId,
           messageObject: { message, messageType: 'text', sender: currentState.currentUserId, timestamp: Date.now() },
         },
-      }),
+      });
+    },
     [dispatch, currentState]
   );
 
@@ -41,10 +44,16 @@ function Console() {
         style={{ position: 'absolute', bottom: '1rem', top: '1rem', right: 0, left: 0 }}
       >
         <input ref={inputElement} type="text" placeholder="Type your message here..." onKeyUp={submitOnEnterKey} />
-        <i
-          className="inverted circular envelope link icon"
+        <Link to="/image" className="ui teal button" style={{ width: '5rem', marginLeft: '.5rem' }}>
+          <i className="inverted circular image link icon"></i>
+        </Link>
+        <button
+          className="ui teal button"
+          style={{ width: '5rem', marginLeft: '.25rem' }}
           onClick={() => dispatchTextMessage(inputElement.current.value)}
-        ></i>
+        >
+          <i className="inverted circular envelope link icon"></i>
+        </button>
       </div>
     </div>
   );
