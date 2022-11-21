@@ -1,14 +1,56 @@
 import { getUserFromUserId, getUserNameFromUserId } from './userUtils';
+import Fuse from 'fuse.js';
 
 // Gets last message and userList for each conversation.
-export const getSidepanelConversationList = (conversationState, userState) => {
+export function getSidepanelConversationList(conversationState, userState) {
   return conversationState.map((conversation) => {
     return {
       message: getSidePanelMessageContentAsPerMessageType(getLastMessage(conversation), userState),
       users: getUsersObjectsForAConversation(conversation.users, userState),
     };
   });
-};
+}
+
+export function getSidepanelConversationsContainingMatchingUser(conversationsState, usersState, userNameQuery) {
+  const matchingUsers = findMatchingUsers(usersState, userNameQuery);
+  // No User match found:
+  if (matchingUsers.length === 0) return { found: false, message: 'No such User exists!' };
+
+  const matchingConversations = findMatchingConversations(matchingUsers, conversationsState);
+  if (matchingConversations.length === 0) return { found: false, message: 'User exists, but not in any conversation!' };
+
+  return { found: true, matchedResult: getSidepanelConversationList(matchingConversations, usersState) };
+}
+
+function findMatchingUsers(usersState, userNameQuery) {
+  if (!usersState) return null;
+  const fuseInstance = new Fuse(usersState, { keys: ['userName'] });
+  return fuseInstance.search(userNameQuery);
+}
+
+function findMatchingConversations(matchingUsers, conversationsState) {
+  if (!matchingUsers || !conversationsState) return null;
+
+  const matchingConversationsSet = new Set();
+  matchingUsers.forEach((user) => {
+    const userConversations = getConversationsContainingUserId(conversationsState, user.item.userId);
+    for (const matchedConversation of userConversations) {
+      matchingConversationsSet.add(matchedConversation);
+    }
+  });
+  return Array.from(matchingConversationsSet);
+}
+
+function getConversationsContainingUserId(conversations, userId) {
+  const matchingConversations = [];
+  conversations.forEach((conversation) => {
+    for (const id of conversation.users) {
+      if (id !== userId) continue;
+      matchingConversations.push(conversation);
+    }
+  });
+  return matchingConversations;
+}
 
 // Converts epoch timestamp to dateTime string for messages.
 export const tsToDateTime1d1hSensitive = (timestamp) => {

@@ -8,6 +8,11 @@ const currentReducer = (state = CURRENT_USER_STATE, { type, payload }) => {
         ...state,
         currentConversationId: payload,
       };
+    case ACTION_TYPES.SEARCH_USER_IN_CONVERSATIONS:
+      return {
+        ...state,
+        searchUserConversationQuery: payload,
+      };
 
     default:
       return state;
