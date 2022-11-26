@@ -94,3 +94,20 @@ const getSidePanelMessageContentAsPerMessageType = (messageObject, userState) =>
       return 'No conversation yet !';
   }
 };
+
+export function getUsersInAndOutOfCurrentConversation(users, currentConversationId, conversations) {
+  const currentConversation = conversations.find((conv) => conv.conversationId === currentConversationId);
+  const usersInCurrentConversation = currentConversation.users;
+
+  const conversationUsersSet = new Set();
+  usersInCurrentConversation.forEach((uId) => conversationUsersSet.add(uId));
+
+  const usersObjectsOutOfCurrentConversation = [];
+  const usersObjectsInCurrentConversation = [];
+  users.forEach((user) => {
+    if (!conversationUsersSet.has(user.userId)) usersObjectsOutOfCurrentConversation.push(user);
+    else usersObjectsInCurrentConversation.push(user);
+  });
+
+  return [usersObjectsInCurrentConversation, usersObjectsOutOfCurrentConversation];
+}
