@@ -1,5 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import SidePanelElement from './SidePanelElement';
 import {
   getSidepanelConversationList,
@@ -46,10 +48,18 @@ function SidePanel() {
   return (
     <div className="four wide column">
       <SearchUserConversations />
+
+      {/* Create Conversation: */}
+      <Link className="ui labeled icon button" to="/createConversation">
+        <i className="user plus icon"></i>
+        Add user
+      </Link>
+
+      {/*  Render conversations :*/}
       <div
         style={{
           position: 'absolute',
-          top: '7vh',
+          top: '9vh',
           bottom: 0,
           right: 0,
           left: 0,

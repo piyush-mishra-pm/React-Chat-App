@@ -6,6 +6,7 @@ import MainPanel from './components/mainPanel/MainPanel';
 import SidePanel from './components/sidePanel/SidePanel';
 import SendImage from './components/mainPanel/SendImage';
 import AddUserToExistingConversation from './components/mainPanel/AddUserToExistingConversation';
+import CreateConversation from './components/sidePanel/CreateConversation';
 import history from './history';
 import './App.css';
 
@@ -23,6 +24,7 @@ function App() {
           </div>
           <Route path="/image" exact component={SendImage} />
           <Route path="/addUsersToExistingConversation" exact component={AddUserToExistingConversation} />
+          <Route path="/createConversation" exact component={CreateConversation} />
         </div>
       </Router>
     </div>

@@ -42,13 +42,11 @@ function SendImage() {
   const toastImgLoaded = () => toast.success('Image loaded');
 
   function onConfirmClick() {
-    console.log('Clicked confirm');
     dispatchImgUrl(imgUrl);
     history.push('/');
   }
 
   function onCancelClick() {
-    console.log('Clicked cancel');
     history.push('/');
   }
 
@@ -66,7 +64,6 @@ function SendImage() {
   }
 
   function onPreviewImageClick() {
-    console.log('will preview image');
     if (isImgUrl(imgUrl)) {
       toastImgUrlCorrect();
       setIsImgUrlValid(true);

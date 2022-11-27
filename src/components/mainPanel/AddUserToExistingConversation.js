@@ -30,7 +30,6 @@ function AddUserToExistingConversation() {
   );
 
   function onCancelClick() {
-    console.log('clicked cancel');
     history.push('/');
   }
   function renderModalActions() {
