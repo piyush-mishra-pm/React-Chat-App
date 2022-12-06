@@ -397,4 +397,5 @@ export const CURRENT_USER_STATE = {
   currentUserId: 1,
   currentConversationId: 1,
   searchUserConversationQuery: '',
+  tempCurrentConversation: {},
 };

@@ -1,5 +1,6 @@
 import { getUserFromUserId, getUserNameFromUserId } from './userUtils';
 import Fuse from 'fuse.js';
+import _ from 'lodash';
 
 // Gets last message and userList for each conversation.
 export function getSidepanelConversationList(conversationState, userState) {
@@ -81,6 +82,7 @@ const getLastMessage = (conversation) => {
 };
 
 const getSidePanelMessageContentAsPerMessageType = (messageObject, userState) => {
+  if (!messageObject) return '';
   switch (messageObject.messageType) {
     case 'text':
       return `${getUserNameFromUserId(messageObject.sender, userState)} : ${messageObject.message}`;
@@ -110,4 +112,15 @@ export function getUsersInAndOutOfCurrentConversation(users, currentConversation
   });
 
   return [usersObjectsInCurrentConversation, usersObjectsOutOfCurrentConversation];
+}
+
+export function getExistingConversationsContainingTheSameUsers(userIds, conversations) {
+  const uniqUserIds = _.sortBy(_.uniq(userIds));
+  const matchingConversations = [];
+  conversations.forEach((conversation) => {
+    const uniqUserIdsInThisConversation = _.sortBy(_.uniq(conversation.users));
+    const didUsersMatch = _.isEqual(uniqUserIdsInThisConversation, uniqUserIds);
+    if (didUsersMatch) matchingConversations.push(conversation);
+  });
+  return matchingConversations;
 }

@@ -1,7 +1,10 @@
 # Chat App built using React and Redux
 todo:
-- Create and Delete Conversation.
+- Create, Update and Delete Conversation.
 - Time in messages.
 - Conversation Group name. Change Schema, and also appear in SidePanel.
-- Local states in modals.
-
+- Can't create a conversation with no user.
+- Creator as a default user in every created conversation.
+- Conversation created mesage (in newly created message).
+- If exiting an existing conversation, then that conversation gets deleted from your memory.
+- 
