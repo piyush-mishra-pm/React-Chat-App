@@ -19,7 +19,7 @@ function CreateConversation() {
           dispatch({
             type: ACTION_TYPES.CONVERSATION_TEMP_CREATE,
             payload: {
-              coversationId: uuidv4(),
+              conversationId: uuidv4(),
               users: [state.current.currentUserId],
               messages: [],
             },
@@ -99,7 +99,7 @@ function CreateConversation() {
     return (
       <div className="ui container">
         <div>
-          Coversations with same users:
+          Conversations with same users:
           <div className="ui huge labels">{getConversationsWithSameUsers()}</div>
         </div>
         <hr />
