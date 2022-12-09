@@ -8,6 +8,7 @@ export function getSidepanelConversationList(conversationState, userState) {
     return {
       message: getSidePanelMessageContentAsPerMessageType(getLastMessage(conversation), userState),
       users: getUsersObjectsForAConversation(conversation.users, userState),
+      index: conversation.conversationId,
     };
   });
 }
@@ -123,4 +124,8 @@ export function getExistingConversationsContainingTheSameUsers(userIds, conversa
     if (didUsersMatch) matchingConversations.push(conversation);
   });
   return matchingConversations;
+}
+
+export function getConversationUsingConversationId(conversations, conversationId) {
+  return conversations.find((conversation) => conversation.conversationId === conversationId);
 }

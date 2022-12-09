@@ -39,7 +39,7 @@ function SidePanel() {
     return (
       <div className="ui relaxed animated celled list">
         {sidePanelConversations.matchedResult.map((item, index) => (
-          <SidePanelElement message={item.message} users={item.users} item={item} key={index} index={index} />
+          <SidePanelElement message={item.message} users={item.users} item={item} key={item.index} index={item.index} />
         ))}
       </div>
     );

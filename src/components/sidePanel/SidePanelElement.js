@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import ACTION_TYPES from '../../store/ACTION_TYPES';
+import { getConversationUsingConversationId } from '../../utils/conversationUtils';
 
 const MAX_PROFILE_IMAGES_IN_1_ROW = 2;
 const MAX_USERNAMES_IN_1_ROW = 2;
@@ -14,7 +15,7 @@ export default function SidePanelElement(props) {
     (conversationIndexClicked) =>
       dispatch({
         type: ACTION_TYPES.CONVERSATION_CHANGE_CURRENT,
-        payload: conversations[conversationIndexClicked].conversationId,
+        payload: getConversationUsingConversationId(conversations, conversationIndexClicked).conversationId,
       }),
     [dispatch, conversations]
   );

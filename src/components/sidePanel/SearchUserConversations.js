@@ -13,9 +13,16 @@ function SearchUserConversations() {
 
   return (
     <div className="ui icon input small">
-      <input type="text" placeholder="Search users in Chats" onChange={(e) => dispatchQuery(e.target.value)} />
+      <input
+        type="text"
+        placeholder="Search users in Chats"
+        value={currentQueryString}
+        onChange={(e) => dispatchQuery(e.target.value)}
+      />
       {currentQueryString ? (
-        <i className="pause icon" onClick={() => dispatchQuery('')}></i>
+        <button className="button negative" onClick={() => dispatchQuery('')}>
+          <i className="pause icon"></i>
+        </button>
       ) : (
         <i className="search icon"></i>
       )}
