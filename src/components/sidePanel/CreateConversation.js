@@ -13,7 +13,7 @@ function CreateConversation() {
   const history = useHistory();
   const dispatch = useDispatch();
   const dispatchCreateConversationAddRemoveUser = useCallback(
-    (actionType, userIDs = []) => {
+    (actionType, updatedState = { ...state.current.tempCurrentConversation }) => {
       switch (actionType) {
         case ACTION_TYPES.CONVERSATION_TEMP_CREATE:
           dispatch({
@@ -22,7 +22,7 @@ function CreateConversation() {
               conversationId: uuidv4(),
               users: [state.current.currentUserId],
               messages: [],
-              conversationName: 'created',
+              conversationName: '',
             },
           });
           break;
@@ -31,8 +31,7 @@ function CreateConversation() {
           dispatch({
             type: ACTION_TYPES.CONVERSATION_TEMP_UPDATE,
             payload: {
-              ...state.current.tempCurrentConversation,
-              users: userIDs,
+              ...updatedState,
             },
           });
           break;
@@ -106,9 +105,12 @@ function CreateConversation() {
     return (
       <div className="ui container">
         <div className="ui fluid action input">
-          <input type="text" placeholder="Name this new conversation ..." />
-          {/* todo: Dispatch Actions for Name */}
-          <div className="ui button">Name Conversation</div>
+          <input
+            type="text"
+            placeholder="Name this new conversation ..."
+            value={state.current.tempCurrentConversation.conversationName || ''}
+            onChange={(e) => onNameConversationClick(e.target.value)}
+          />
         </div>
         <div>
           {conversationsWithSameUsers.length ? 'Conversations with same users:' : ''}
@@ -132,6 +134,12 @@ function CreateConversation() {
         </div>
       </div>
     );
+  }
+
+  function onNameConversationClick(inputtedConversationName) {
+    const newTempCurrentConversationState = _.cloneDeep(state.current.tempCurrentConversation);
+    newTempCurrentConversationState.conversationName = inputtedConversationName;
+    dispatchCreateConversationAddRemoveUser(ACTION_TYPES.CONVERSATION_TEMP_UPDATE, newTempCurrentConversationState);
   }
 
   function getConversationsWithSameUsers() {
@@ -168,10 +176,9 @@ function CreateConversation() {
   }
 
   function onExistingUserClickedRemoveExistingUser(userId) {
-    dispatchCreateConversationAddRemoveUser(
-      ACTION_TYPES.CONVERSATION_TEMP_UPDATE,
-      _.cloneDeep(state.current.tempCurrentConversation.users).filter((uId) => uId !== userId)
-    );
+    const newTempConversationState = _.cloneDeep(state.current.tempCurrentConversation);
+    newTempConversationState.users = newTempConversationState.users.filter((uId) => uId !== userId);
+    dispatchCreateConversationAddRemoveUser(ACTION_TYPES.CONVERSATION_TEMP_UPDATE, newTempConversationState);
   }
 
   function renderUsersOutOfCurrentTempConversation(currentTempConversation) {
@@ -195,9 +202,9 @@ function CreateConversation() {
   }
 
   function onClickOutOfConversationUserAddAsAConversationUser(userId) {
-    let clonedState = _.cloneDeep(state.current.tempCurrentConversation.users);
-    clonedState.push(userId);
-    dispatchCreateConversationAddRemoveUser(ACTION_TYPES.CONVERSATION_TEMP_UPDATE, clonedState);
+    let newTempCurrentConversationState = _.cloneDeep(state.current.tempCurrentConversation);
+    newTempCurrentConversationState.users.push(userId);
+    dispatchCreateConversationAddRemoveUser(ACTION_TYPES.CONVERSATION_TEMP_UPDATE, newTempCurrentConversationState);
   }
 
   function getUserObjectFromUserId(userId) {
