@@ -52,7 +52,7 @@ function SidePanel() {
       {/* Create Conversation: */}
       <Link className="ui labeled icon button" to="/createConversation">
         <i className="user plus icon"></i>
-        Add user
+        Create Conversation
       </Link>
 
       {/*  Render conversations :*/}

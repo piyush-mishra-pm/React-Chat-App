@@ -95,24 +95,34 @@ function CreateConversation() {
 
   function renderModalContent() {
     const currentTempConversation = state.current.tempCurrentConversation;
-
+    const conversationsWithSameUsers = getConversationsWithSameUsers();
+    const existingUsersInCurrentTempConversation =
+      renderExistingUsersInCurrentTempConversation(currentTempConversation);
+    const usersOutOfCurrentTempConversation = renderUsersOutOfCurrentTempConversation(
+      currentTempConversation,
+      state.users
+    );
     return (
       <div className="ui container">
         <div>
-          Conversations with same users:
-          <div className="ui huge labels">{getConversationsWithSameUsers()}</div>
+          {conversationsWithSameUsers.length ? 'Conversations with same users:' : ''}
+          <div className="ui huge labels">{conversationsWithSameUsers}</div>
         </div>
-        <hr />
+        {
+          /* Horizontal divider only appears when some matching conversations exist */
+          conversationsWithSameUsers.length ? <hr /> : ''
+        }
         <div>
-          Existing:
-          <div className="ui huge labels">{renderExistingUsersInCurrentTempConversation(currentTempConversation)}</div>
+          {existingUsersInCurrentTempConversation.length ? 'Existing:' : ''}
+          <div className="ui huge labels">{existingUsersInCurrentTempConversation}</div>
         </div>
-        <hr />
+        {
+          /* Horizontal divider only appears when some users remaining and added */
+          existingUsersInCurrentTempConversation.length && usersOutOfCurrentTempConversation.length ? <hr /> : ''
+        }
         <div>
-          Add:
-          <div className="ui huge labels">
-            {renderUsersOutOfCurrentTempConversation(currentTempConversation, state.users)}
-          </div>
+          {usersOutOfCurrentTempConversation.length ? 'Add:' : ''}
+          <div className="ui huge labels">{usersOutOfCurrentTempConversation}</div>
         </div>
       </div>
     );
@@ -192,7 +202,7 @@ function CreateConversation() {
   return (
     <div>
       <Modal
-        header="Add users to this chat?"
+        header="Create new Conversation?"
         content={renderModalContent()}
         modalActions={renderModalActions()}
         onCloseModal={closeModal}

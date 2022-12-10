@@ -4,5 +4,5 @@ todo:
 - Time in messages.
 - Conversation Group name. Change Schema, and also appear in SidePanel.
 - Conversation created mesage (in newly created message).
-- Persistant redux.
 - Alert / notifications.
+- UI update.
