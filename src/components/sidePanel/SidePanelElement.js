@@ -50,11 +50,17 @@ export default function SidePanelElement(props) {
     return <div className="left floated">{concatenatedUserNames}</div>;
   };
 
+  const renderConversationName = () => {
+    const conversation = getConversationUsingConversationId(conversations, props.index);
+    return conversation.conversationName;
+  };
+
   return (
     <div className="item relaxed" onClick={() => conversationChangeAction(props.index)}>
-      {renderUserImages()}
+      <div>{renderUserImages()}</div>
+      <div>{renderConversationName()}</div>
       <div className="header right floated">{renderUserNames()}</div>
-      {/* Last Message in the conversation: */ props.message}
+      <div>{/* Last Message in the conversation: */ props.message}</div>
     </div>
   );
 }

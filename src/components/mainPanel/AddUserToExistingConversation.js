@@ -4,7 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import Modal from '../Modal';
 import ACTION_TYPES from '../../store/ACTION_TYPES';
-import { getUsersInAndOutOfCurrentConversation } from '../../utils/conversationUtils';
+import {
+  getUsersInAndOutOfCurrentConversation,
+  getConversationUsingConversationId,
+} from '../../utils/conversationUtils';
 
 function AddUserToExistingConversation() {
   const history = useHistory();
@@ -50,11 +53,25 @@ function AddUserToExistingConversation() {
 
     return (
       <div className="ui container">
+        <h1>
+          {
+            getConversationUsingConversationId(state.conversations, state.current.currentConversationId)
+              .conversationName
+          }
+        </h1>
+        {
+          /* Horizontal divider, only if users in the current conversation exist. */
+          usersInCurrentConversation.length ? <hr /> : ''
+        }
         <div>Existing:</div>
         <div className="ui middle aligned animated horizontal list">
           {renderExistingUsersInConversation(usersInCurrentConversation)}
         </div>
-        <div>Add:</div>
+        {
+          /* Horizontal divider, only if users out of the current conversation exist. */
+          usersOutOfCurrentConversation.length ? <hr /> : ''
+        }
+        <div>{usersOutOfCurrentConversation.length ? 'Add:' : ''}</div>
         <div className="ui middle aligned animated list">
           {renderRestOfTheUsersInContact(usersOutOfCurrentConversation)}
         </div>
@@ -97,7 +114,7 @@ function AddUserToExistingConversation() {
   }
   return (
     <Modal
-      header="Add users to this chat?"
+      header="Modify users in this coversation?"
       content={renderModalContent()}
       modalActions={renderModalActions()}
       onCloseModal={onCancelClick}

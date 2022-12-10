@@ -9,7 +9,7 @@ function AddPeople() {
     >
       <Link className="ui labeled icon button" to="/addUsersToExistingConversation">
         <i className="user plus icon"></i>
-        Add user
+        Modify User List
       </Link>
     </div>
   );

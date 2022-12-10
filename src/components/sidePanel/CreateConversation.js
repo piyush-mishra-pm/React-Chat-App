@@ -22,6 +22,7 @@ function CreateConversation() {
               conversationId: uuidv4(),
               users: [state.current.currentUserId],
               messages: [],
+              conversationName: 'created',
             },
           });
           break;
@@ -104,6 +105,11 @@ function CreateConversation() {
     );
     return (
       <div className="ui container">
+        <div className="ui fluid action input">
+          <input type="text" placeholder="Name this new conversation ..." />
+          {/* todo: Dispatch Actions for Name */}
+          <div className="ui button">Name Conversation</div>
+        </div>
         <div>
           {conversationsWithSameUsers.length ? 'Conversations with same users:' : ''}
           <div className="ui huge labels">{conversationsWithSameUsers}</div>
@@ -136,8 +142,7 @@ function CreateConversation() {
     );
     return existingConversationsContainingTheSameUsers.map((conversation) => (
       <div key={conversation.conversationId} className="ui label">
-        {/* todo: Add conversation Name */}
-        ID:{conversation.conversationId}
+        {conversation.conversationName}
       </div>
     ));
   }

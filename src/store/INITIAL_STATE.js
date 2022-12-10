@@ -1,6 +1,7 @@
 export const SEED_CONVERSATIONS = [
   {
     conversationId: 1,
+    conversationName: 'Beer Internet',
     users: [1, 2, 3],
     messages: [
       {
@@ -32,6 +33,7 @@ export const SEED_CONVERSATIONS = [
   },
   {
     conversationId: 2,
+    conversationName: 'Attitude Child',
     users: [1, 2],
     messages: [
       {
@@ -63,6 +65,7 @@ export const SEED_CONVERSATIONS = [
   },
   {
     conversationId: 3,
+    conversationName: 'Askew',
     users: [1, 2],
     messages: [
       {
@@ -93,6 +96,7 @@ export const SEED_CONVERSATIONS = [
   },
   {
     conversationId: 4,
+    conversationName: 'Sidesky',
     users: [1, 2],
     messages: [
       {
@@ -123,6 +127,7 @@ export const SEED_CONVERSATIONS = [
   },
   {
     conversationId: 5,
+    conversationName: 'React redux',
     users: [1, 2, 3],
     messages: [
       {
@@ -153,6 +158,7 @@ export const SEED_CONVERSATIONS = [
   },
   {
     conversationId: 6,
+    conversationName: 'Node js',
     users: [1, 2],
     messages: [
       {
@@ -184,6 +190,7 @@ export const SEED_CONVERSATIONS = [
   },
   {
     conversationId: 7,
+    conversationName: 'Full stack Devs',
     users: [1, 2],
     messages: [
       {
@@ -214,6 +221,7 @@ export const SEED_CONVERSATIONS = [
   },
   {
     conversationId: 8,
+    conversationName: 'Scalable',
     users: [4, 2],
     messages: [
       {
@@ -244,6 +252,7 @@ export const SEED_CONVERSATIONS = [
   },
   {
     conversationId: 9,
+    conversationName: 'Microservices',
     users: [1, 2, 3],
     messages: [
       {
@@ -275,6 +284,7 @@ export const SEED_CONVERSATIONS = [
   },
   {
     conversationId: 10,
+    conversationName: 'Design Patterns',
     users: [1, 2],
     messages: [
       {
@@ -306,6 +316,7 @@ export const SEED_CONVERSATIONS = [
   },
   {
     conversationId: 11,
+    conversationName: 'DSA',
     users: [4, 2],
     messages: [
       {
@@ -336,6 +347,7 @@ export const SEED_CONVERSATIONS = [
   },
   {
     conversationId: 12,
+    conversationName: 'Creative Coding',
     users: [4, 2],
     messages: [
       {
