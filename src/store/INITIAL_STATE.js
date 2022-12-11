@@ -4,7 +4,7 @@ export const SEED_CONVERSATIONS = [
   {
     conversationId: 1,
     conversationName: 'React Redux',
-    users: [1, 2, 3],
+    users: [1, 2, 3, 5],
     messages: [
       {
         message:
@@ -428,6 +428,12 @@ export const SEED_USERS = [
     userName: 'Katz',
     imgUrl:
       'https://images.pexels.com/photos/3859933/pexels-photo-3859933.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
+  },
+  {
+    userId: 5,
+    userName: 'Bot-Coder',
+    imgUrl:
+      'https://images.pexels.com/photos/965345/pexels-photo-965345.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
   },
 ];
 

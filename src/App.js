@@ -8,6 +8,7 @@ import SendImage from './components/mainPanel/SendImage';
 import AddUserToExistingConversation from './components/mainPanel/AddUserToExistingConversation';
 import CreateConversation from './components/sidePanel/CreateConversation';
 import history from './history';
+import BotComponent from './BOT/BotComponent';
 import './App.css';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/createConversation" exact component={CreateConversation} />
         </div>
       </Router>
+      <BotComponent />
     </div>
   );
 }
