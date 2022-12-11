@@ -3,6 +3,7 @@ import { useHistory, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import _ from 'lodash';
+import { toast } from 'react-toastify';
 
 import Modal from '../Modal';
 import ACTION_TYPES from '../../store/ACTION_TYPES';
@@ -102,6 +103,7 @@ function CreateConversation() {
     // Create Conversation from Temp. Then Delete the temp.
     dispatchCreateConversationAddRemoveUser(ACTION_TYPES.CONVERSATION_CREATE);
     dispatchMessage();
+    toast.success(`You created conversation: ${state.current.tempCurrentConversation.conversationName}!`);
     dispatchCreateConversationAddRemoveUser(ACTION_TYPES.CONVERSATION_TEMP_DELETE);
     closeModal();
   }

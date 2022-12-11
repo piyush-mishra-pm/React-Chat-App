@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import Modal from '../Modal';
 import ACTION_TYPES from '../../store/ACTION_TYPES';
@@ -17,6 +18,8 @@ function AddUserToExistingConversation() {
   const dispatch = useDispatch();
   const dispatchAddRemoveUserInConversation = useCallback(
     (userId, currentConversationId, notifType) => {
+      const notifMessage = notifType === NOTIFICATION_TYPES.MEMBER_JOIN ? `member added` : `member removed`;
+      toast.warning(notifMessage);
       dispatch({
         type: ACTION_TYPES.CONVERSATION_NOTIFICATION,
         payload: {

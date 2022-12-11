@@ -1,5 +1,6 @@
 import React from 'react';
 import { Router, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import Header from './components/Header';
 import MainPanel from './components/mainPanel/MainPanel';
@@ -9,7 +10,9 @@ import AddUserToExistingConversation from './components/mainPanel/AddUserToExist
 import CreateConversation from './components/sidePanel/CreateConversation';
 import history from './history';
 import BotComponent from './BOT/BotComponent';
+
 import './App.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -18,6 +21,7 @@ function App() {
         <div>
           <div style={{ height: '5vh' }}>
             <Header />
+            <ToastContainer />
           </div>
           <div className="ui two column celled grid" style={{ height: '93vh' }}>
             <SidePanel />

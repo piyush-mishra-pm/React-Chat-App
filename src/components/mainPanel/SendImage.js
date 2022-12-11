@@ -1,11 +1,10 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import ACTION_TYPES from '../../store/ACTION_TYPES';
 
-import 'react-toastify/dist/ReactToastify.css';
 import Modal from '../Modal';
 import NOTIFICATION_TYPES from '../../store/NOTIFICATION_TYPES';
 
@@ -37,10 +36,6 @@ function SendImage() {
     },
     [dispatch, isImgUrlValid, currentUserState]
   );
-  const toastImgUrlWrong = () => toast.error("Image url regex doesn't match!");
-  const toastImgError = () => toast.error("Image can't be loaded. Check url.");
-  const toastImgUrlCorrect = () => toast.success('Image url regex is ok!');
-  const toastImgLoaded = () => toast.success('Image loaded');
 
   function onConfirmClick() {
     dispatchImgUrl(imgUrl);
@@ -66,10 +61,10 @@ function SendImage() {
 
   function onPreviewImageClick() {
     if (isImgUrl(imgUrl)) {
-      toastImgUrlCorrect();
+      toast.success('Image url regex is ok!');
       setIsImgUrlValid(true);
     } else {
-      toastImgUrlWrong();
+      toast.error("Image url regex doesn't match!");
       setIsImgUrlValid(false);
     }
   }
@@ -93,8 +88,8 @@ function SendImage() {
             <img
               className="ui centered medium image"
               src={imgUrl}
-              onLoad={toastImgLoaded}
-              onError={toastImgError}
+              onLoad={() => toast.success('Image loaded')}
+              onError={() => toast.error("Image can't be loaded. Check url.")}
               alt="preview"
             />
           )}
@@ -107,9 +102,8 @@ function SendImage() {
             onChange={(e) => setImgUrl(e.target.value)}
             onBlur={(e) => onPreviewImageClick()}
           />
-          <button onClick={() => inputElement.blur()}>Preview</button>
+          <button onClick={() => inputElement.onBlur()}>Preview</button>
         </div>
-        <ToastContainer />
       </div>
     );
   }
