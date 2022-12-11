@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import ACTION_TYPES from '../../store/ACTION_TYPES';
+import NOTIFICATION_TYPES from '../../store/NOTIFICATION_TYPES';
 
 function Console() {
   const currentState = useSelector((state) => state.current);
@@ -16,7 +17,12 @@ function Console() {
         type: ACTION_TYPES.MESSAGE_TEXT,
         payload: {
           currentConversationId: currentState.currentConversationId,
-          messageObject: { message, messageType: 'text', sender: currentState.currentUserId, timestamp: Date.now() },
+          messageObject: {
+            message,
+            messageType: NOTIFICATION_TYPES.MESSAGE,
+            sender: currentState.currentUserId,
+            timestamp: Date.now(),
+          },
         },
       });
     },

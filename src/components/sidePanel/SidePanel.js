@@ -38,7 +38,7 @@ function SidePanel() {
     // Either matching conversation for user found or user was not being queried.
     return (
       <div className="ui relaxed animated celled list">
-        {sidePanelConversations.matchedResult.map((item, index) => (
+        {sidePanelConversations.matchedResult.map((item) => (
           <SidePanelElement message={item.message} users={item.users} item={item} key={item.index} index={item.index} />
         ))}
       </div>

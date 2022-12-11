@@ -7,6 +7,7 @@ import ACTION_TYPES from '../../store/ACTION_TYPES';
 
 import 'react-toastify/dist/ReactToastify.css';
 import Modal from '../Modal';
+import NOTIFICATION_TYPES from '../../store/NOTIFICATION_TYPES';
 
 function SendImage() {
   const inputElement = useRef(null);
@@ -25,7 +26,7 @@ function SendImage() {
         payload: {
           currentConversationId: currentUserState.currentConversationId,
           messageObject: {
-            messageType: 'img',
+            messageType: NOTIFICATION_TYPES.IMAGE,
             imgAltText: 'picture sent by me',
             imgUrl,
             sender: currentUserState.currentUserId,

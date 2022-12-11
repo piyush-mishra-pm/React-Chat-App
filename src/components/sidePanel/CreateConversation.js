@@ -7,6 +7,7 @@ import _ from 'lodash';
 import Modal from '../Modal';
 import ACTION_TYPES from '../../store/ACTION_TYPES';
 import { getExistingConversationsContainingTheSameUsers } from '../../utils/conversationUtils';
+import NOTIFICATION_TYPES from '../../store/NOTIFICATION_TYPES';
 
 function CreateConversation() {
   const state = useSelector((state) => state);
@@ -56,6 +57,21 @@ function CreateConversation() {
     [dispatch, state]
   );
 
+  const dispatchMessage = useCallback(() => {
+    dispatch({
+      type: ACTION_TYPES.CONVERSATION_NOTIFICATION,
+      payload: {
+        currentConversationId: state.current.tempCurrentConversation.conversationId,
+        messageObject: {
+          messageType: NOTIFICATION_TYPES.CONVERSATION_CREATED,
+          creator: state.current.currentUserId,
+          conversationName: state.current.tempCurrentConversation.conversationName,
+          timestamp: Date.now(),
+        },
+      },
+    });
+  }, [dispatch, state]);
+
   useEffect(() => {
     // When Modal opened, check if atleast an empty temp conversation object exists:
     if (Object.keys(state.current.tempCurrentConversation).length === 0) {
@@ -85,6 +101,7 @@ function CreateConversation() {
   function onCreateConversationClick() {
     // Create Conversation from Temp. Then Delete the temp.
     dispatchCreateConversationAddRemoveUser(ACTION_TYPES.CONVERSATION_CREATE);
+    dispatchMessage();
     dispatchCreateConversationAddRemoveUser(ACTION_TYPES.CONVERSATION_TEMP_DELETE);
     closeModal();
   }

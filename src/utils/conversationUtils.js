@@ -1,6 +1,7 @@
 import { getUserFromUserId, getUserNameFromUserId } from './userUtils';
 import Fuse from 'fuse.js';
 import _ from 'lodash';
+import NOTIFICATION_TYPES from '../store/NOTIFICATION_TYPES';
 
 // Gets last message and userList for each conversation.
 export function getSidepanelConversationList(conversationState, userState) {
@@ -82,17 +83,36 @@ const getLastMessage = (conversation) => {
   return conversation.messages[conversation.messages.length - 1];
 };
 
-const getSidePanelMessageContentAsPerMessageType = (messageObject, userState) => {
+export const getSidePanelMessageContentAsPerMessageType = (messageObject, userState) => {
   if (!messageObject) return '';
   switch (messageObject.messageType) {
-    case 'text':
+    case NOTIFICATION_TYPES.MESSAGE:
       return `${getUserNameFromUserId(messageObject.sender, userState)} : ${messageObject.message}`;
-    case 'join':
-      return `${getUserNameFromUserId(messageObject.sender, userState)} joined! `;
-    case 'leave':
-      return `${getUserNameFromUserId(messageObject.sender, userState)} left! `;
-    case 'img':
+
+    case NOTIFICATION_TYPES.MEMBER_JOIN:
+      if (messageObject.modifiedUser === messageObject.modifyingUser)
+        return `${getUserNameFromUserId(messageObject.modifiedUser, userState)} joined conversation! `;
+      else
+        return `${getUserNameFromUserId(messageObject.modifiedUser, userState)} added by ${getUserNameFromUserId(
+          messageObject.modifyingUser,
+          userState
+        )}!`;
+
+    case NOTIFICATION_TYPES.MEMBER_LEAVE:
+      if (messageObject.modifiedUser === messageObject.modifyingUser)
+        return `${getUserNameFromUserId(messageObject.modifiedUser, userState)} left conversation! `;
+      else
+        return `${getUserNameFromUserId(messageObject.modifiedUser, userState)} removed by ${getUserNameFromUserId(
+          messageObject.modifyingUser,
+          userState
+        )}!`;
+
+    case NOTIFICATION_TYPES.IMAGE:
       return `${getUserNameFromUserId(messageObject.sender, userState)} sent an image! `;
+
+    case NOTIFICATION_TYPES.CONVERSATION_CREATED:
+      return `${messageObject.conversationName} created by ${getUserNameFromUserId(messageObject.creator, userState)}`;
+
     default:
       return 'No conversation yet !';
   }

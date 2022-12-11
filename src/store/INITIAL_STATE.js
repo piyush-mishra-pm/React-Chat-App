@@ -1,28 +1,32 @@
+import NOTIFICATION_TYPES from './NOTIFICATION_TYPES';
+
 export const SEED_CONVERSATIONS = [
   {
     conversationId: 1,
-    conversationName: 'Beer Internet',
+    conversationName: 'React Redux',
     users: [1, 2, 3],
     messages: [
       {
         message:
           'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-        messageType: 'text',
+        messageType: NOTIFICATION_TYPES.MESSAGE,
         sender: 1,
         timestamp: 1667752786158,
       },
       {
-        messageType: 'join',
-        sender: 1,
+        messageType: NOTIFICATION_TYPES.MEMBER_JOIN,
+        modifiedUser: 1,
+        modifyingUser: 2,
         timestamp: 1667752889000,
       },
       {
-        messageType: 'leave',
-        sender: 2,
+        messageType: NOTIFICATION_TYPES.MEMBER_LEAVE,
+        modifiedUser: 4,
+        modifyingUser: 2,
         timestamp: 1667752991158,
       },
       {
-        messageType: 'img',
+        messageType: NOTIFICATION_TYPES.IMAGE,
         imgAltText: 'My profile pic',
         imgUrl:
           'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
@@ -33,21 +37,23 @@ export const SEED_CONVERSATIONS = [
   },
   {
     conversationId: 2,
-    conversationName: 'Attitude Child',
+    conversationName: 'Office Club',
     users: [1, 2],
     messages: [
       {
-        messageType: 'join',
-        sender: 2,
+        messageType: NOTIFICATION_TYPES.MEMBER_JOIN,
+        modifiedUser: 2,
+        modifyingUser: 1,
         timestamp: 1667752789000,
       },
       {
-        messageType: 'leave',
-        sender: 1,
+        messageType: NOTIFICATION_TYPES.MEMBER_LEAVE,
+        modifiedUser: 4,
+        modifyingUser: 1,
         timestamp: 1667752791158,
       },
       {
-        messageType: 'img',
+        messageType: NOTIFICATION_TYPES.IMAGE,
         imgAltText: 'My profile pic',
         imgUrl:
           'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
@@ -57,7 +63,7 @@ export const SEED_CONVERSATIONS = [
       {
         message:
           'Quite a a very loong message. Who knows what all I need to type here. i hope it exceeds a line and still is properly formatted in sidepanel.',
-        messageType: 'text',
+        messageType: NOTIFICATION_TYPES.MESSAGE,
         sender: 3,
         timestamp: 1667752786158,
       },
@@ -70,26 +76,28 @@ export const SEED_CONVERSATIONS = [
     messages: [
       {
         message: 'A long message text goes here',
-        messageType: 'text',
-        sender: 1,
+        messageType: NOTIFICATION_TYPES.MESSAGE,
+        sender: 3,
         timestamp: 1667752786158,
       },
       {
-        messageType: 'leave',
-        sender: 1,
+        messageType: NOTIFICATION_TYPES.MEMBER_LEAVE,
+        modifiedUser: 3,
+        modifyingUser: 2,
         timestamp: 1667752791158,
       },
       {
-        messageType: 'img',
+        messageType: NOTIFICATION_TYPES.IMAGE,
         imgAltText: 'My profile pic',
         imgUrl:
           'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
-        sender: 2,
+        sender: 1,
         timestamp: 1667752793158,
       },
       {
-        messageType: 'join',
-        sender: 2,
+        messageType: NOTIFICATION_TYPES.MEMBER_JOIN,
+        modifiedUser: 2,
+        modifyingUser: 1,
         timestamp: 1667752789000,
       },
     ],
@@ -101,26 +109,28 @@ export const SEED_CONVERSATIONS = [
     messages: [
       {
         message: 'message text',
-        messageType: 'text',
+        messageType: NOTIFICATION_TYPES.MESSAGE,
         sender: 1,
         timestamp: 1667752786158,
       },
       {
-        messageType: 'join',
-        sender: 2,
+        messageType: NOTIFICATION_TYPES.MEMBER_JOIN,
+        modifiedUser: 2,
+        modifyingUser: 3,
         timestamp: 1667752789000,
       },
       {
-        messageType: 'img',
+        messageType: NOTIFICATION_TYPES.IMAGE,
         imgAltText: 'My profile pic',
         imgUrl:
           'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
-        sender: 2,
+        sender: 3,
         timestamp: 1667752793158,
       },
       {
-        messageType: 'leave',
-        sender: 1,
+        messageType: NOTIFICATION_TYPES.MEMBER_LEAVE,
+        modifiedUser: 3,
+        modifyingUser: 2,
         timestamp: 1667752791158,
       },
     ],
@@ -128,26 +138,28 @@ export const SEED_CONVERSATIONS = [
   {
     conversationId: 5,
     conversationName: 'React redux',
-    users: [1, 2, 3],
+    users: [1, 2],
     messages: [
       {
         message: 'message text',
-        messageType: 'text',
-        sender: 1,
+        messageType: NOTIFICATION_TYPES.MESSAGE,
+        sender: 3,
         timestamp: 1667752786158,
       },
       {
-        messageType: 'join',
-        sender: 1,
+        messageType: NOTIFICATION_TYPES.MEMBER_JOIN,
+        modifiedUser: 1,
+        modifyingUser: 2,
         timestamp: 1667752789000,
       },
       {
-        messageType: 'leave',
-        sender: 2,
+        messageType: NOTIFICATION_TYPES.MEMBER_LEAVE,
+        modifiedUser: 3,
+        modifyingUser: 1,
         timestamp: 1667752791158,
       },
       {
-        messageType: 'img',
+        messageType: NOTIFICATION_TYPES.IMAGE,
         imgAltText: 'My profile pic',
         imgUrl:
           'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
@@ -162,17 +174,19 @@ export const SEED_CONVERSATIONS = [
     users: [1, 2],
     messages: [
       {
-        messageType: 'join',
-        sender: 2,
+        messageType: NOTIFICATION_TYPES.MEMBER_JOIN,
+        modifiedUser: 2,
+        modifyingUser: 1,
         timestamp: 1667752789000,
       },
       {
-        messageType: 'leave',
-        sender: 1,
+        messageType: NOTIFICATION_TYPES.MEMBER_LEAVE,
+        modifiedUser: 4,
+        modifyingUser: 2,
         timestamp: 1667752791158,
       },
       {
-        messageType: 'img',
+        messageType: NOTIFICATION_TYPES.IMAGE,
         imgAltText: 'My profile pic',
         imgUrl:
           'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
@@ -181,9 +195,9 @@ export const SEED_CONVERSATIONS = [
       },
       {
         message:
-          'Quite a a very loong message. Who knows what all I need to type here. i hope it exceeds a line and still is properly formatted in sidepanel.',
-        messageType: 'text',
-        sender: 3,
+          'Quite a very loong message. Who knows what all I need to type here. i hope it exceeds a line and still is properly formatted in sidepanel.',
+        messageType: NOTIFICATION_TYPES.MESSAGE,
+        sender: 1,
         timestamp: 1667752786158,
       },
     ],
@@ -191,30 +205,32 @@ export const SEED_CONVERSATIONS = [
   {
     conversationId: 7,
     conversationName: 'Full stack Devs',
-    users: [1, 2],
+    users: [1, 4],
     messages: [
       {
         message: 'A long message text goes here',
-        messageType: 'text',
-        sender: 1,
+        messageType: NOTIFICATION_TYPES.MESSAGE,
+        sender: 2,
         timestamp: 1667752786158,
       },
       {
-        messageType: 'leave',
-        sender: 1,
+        messageType: NOTIFICATION_TYPES.MEMBER_LEAVE,
+        modifiedUser: 2,
+        modifyingUser: 1,
         timestamp: 1667752791158,
       },
       {
-        messageType: 'img',
+        messageType: NOTIFICATION_TYPES.IMAGE,
         imgAltText: 'My profile pic',
         imgUrl:
           'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
-        sender: 2,
+        sender: 1,
         timestamp: 1667752793158,
       },
       {
-        messageType: 'join',
-        sender: 2,
+        messageType: NOTIFICATION_TYPES.MEMBER_JOIN,
+        modifiedUser: 4,
+        modifyingUser: 1,
         timestamp: 1667752789000,
       },
     ],
@@ -222,30 +238,32 @@ export const SEED_CONVERSATIONS = [
   {
     conversationId: 8,
     conversationName: 'Scalable',
-    users: [4, 2],
+    users: [2, 4],
     messages: [
       {
         message: 'message text',
-        messageType: 'text',
-        sender: 4,
+        messageType: NOTIFICATION_TYPES.MESSAGE,
+        sender: 1,
         timestamp: 1667752786158,
       },
       {
-        messageType: 'join',
-        sender: 2,
+        messageType: NOTIFICATION_TYPES.MEMBER_JOIN,
+        modifiedUser: 2,
+        modifyingUser: 4,
         timestamp: 1667752789000,
       },
       {
-        messageType: 'img',
+        messageType: NOTIFICATION_TYPES.IMAGE,
         imgAltText: 'My profile pic',
         imgUrl:
           'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
-        sender: 2,
+        sender: 4,
         timestamp: 1667752793158,
       },
       {
-        messageType: 'leave',
-        sender: 4,
+        messageType: NOTIFICATION_TYPES.MEMBER_LEAVE,
+        modifiedUser: 1,
+        modifyingUser: 1,
         timestamp: 1667752791158,
       },
     ],
@@ -258,22 +276,24 @@ export const SEED_CONVERSATIONS = [
       {
         message:
           'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-        messageType: 'text',
-        sender: 1,
+        messageType: NOTIFICATION_TYPES.MESSAGE,
+        sender: 4,
         timestamp: 1667752786158,
       },
       {
-        messageType: 'join',
-        sender: 1,
+        messageType: NOTIFICATION_TYPES.MEMBER_JOIN,
+        modifiedUser: 2,
+        modifyingUser: 1,
         timestamp: 1667752789000,
       },
       {
-        messageType: 'leave',
-        sender: 2,
+        messageType: NOTIFICATION_TYPES.MEMBER_LEAVE,
+        modifiedUser: 4,
+        modifyingUser: 4,
         timestamp: 1667752791158,
       },
       {
-        messageType: 'img',
+        messageType: NOTIFICATION_TYPES.IMAGE,
         imgAltText: 'My profile pic',
         imgUrl:
           'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
@@ -288,28 +308,30 @@ export const SEED_CONVERSATIONS = [
     users: [1, 2],
     messages: [
       {
-        messageType: 'join',
-        sender: 2,
+        messageType: NOTIFICATION_TYPES.MEMBER_JOIN,
+        modifiedUser: 2,
+        modifyingUser: 3,
         timestamp: 1667752789000,
       },
       {
-        messageType: 'leave',
-        sender: 1,
+        messageType: NOTIFICATION_TYPES.MEMBER_LEAVE,
+        modifiedUser: 3,
+        modifyingUser: 3,
         timestamp: 1667752791158,
       },
       {
-        messageType: 'img',
+        messageType: NOTIFICATION_TYPES.IMAGE,
         imgAltText: 'My profile pic',
         imgUrl:
           'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
-        sender: 2,
+        sender: 1,
         timestamp: 1667752793158,
       },
       {
         message:
           'Quite a a very loong message. Who knows what all I need to type here. i hope it exceeds a line and still is properly formatted in sidepanel.',
-        messageType: 'text',
-        sender: 3,
+        messageType: NOTIFICATION_TYPES.MESSAGE,
+        sender: 2,
         timestamp: 1667752786158,
       },
     ],
@@ -321,26 +343,28 @@ export const SEED_CONVERSATIONS = [
     messages: [
       {
         message: 'A long message text goes here',
-        messageType: 'text',
-        sender: 4,
+        messageType: NOTIFICATION_TYPES.MESSAGE,
+        sender: 1,
         timestamp: 1667752786158,
       },
       {
-        messageType: 'leave',
-        sender: 4,
+        messageType: NOTIFICATION_TYPES.MEMBER_LEAVE,
+        modifiedUser: 1,
+        modifyingUser: 1,
         timestamp: 1667752791158,
       },
       {
-        messageType: 'img',
+        messageType: NOTIFICATION_TYPES.IMAGE,
         imgAltText: 'My profile pic',
         imgUrl:
           'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
-        sender: 2,
+        sender: 4,
         timestamp: 1667752793158,
       },
       {
-        messageType: 'join',
-        sender: 2,
+        messageType: NOTIFICATION_TYPES.MEMBER_JOIN,
+        modifiedUser: 2,
+        modifyingUser: 4,
         timestamp: 1667752789000,
       },
     ],
@@ -352,17 +376,18 @@ export const SEED_CONVERSATIONS = [
     messages: [
       {
         message: 'message text',
-        messageType: 'text',
+        messageType: NOTIFICATION_TYPES.MESSAGE,
         sender: 4,
         timestamp: 1667752786158,
       },
       {
-        messageType: 'join',
-        sender: 2,
+        messageType: NOTIFICATION_TYPES.MEMBER_JOIN,
+        modifiedUser: 2,
+        modifyingUser: 1,
         timestamp: 1667752789000,
       },
       {
-        messageType: 'img',
+        messageType: NOTIFICATION_TYPES.IMAGE,
         imgAltText: 'My profile pic',
         imgUrl:
           'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
@@ -370,8 +395,9 @@ export const SEED_CONVERSATIONS = [
         timestamp: 1667752793158,
       },
       {
-        messageType: 'leave',
-        sender: 4,
+        messageType: NOTIFICATION_TYPES.MEMBER_LEAVE,
+        modifiedUser: 1,
+        modifyingUser: 2,
         timestamp: 1667752791158,
       },
     ],

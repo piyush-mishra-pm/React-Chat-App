@@ -8,6 +8,7 @@ import {
   getUsersInAndOutOfCurrentConversation,
   getConversationUsingConversationId,
 } from '../../utils/conversationUtils';
+import NOTIFICATION_TYPES from '../../store/NOTIFICATION_TYPES';
 
 function AddUserToExistingConversation() {
   const history = useHistory();
@@ -15,21 +16,21 @@ function AddUserToExistingConversation() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const dispatchAddRemoveUserInConversation = useCallback(
-    (userId, currentConversationId, isToAdd) => {
+    (userId, currentConversationId, notifType) => {
       dispatch({
-        type: isToAdd ? ACTION_TYPES.CONVERSATION_JOIN : ACTION_TYPES.CONVERSATION_LEAVE,
+        type: ACTION_TYPES.CONVERSATION_NOTIFICATION,
         payload: {
           currentConversationId,
-          userId,
           messageObject: {
-            messageType: isToAdd ? 'join' : 'leave',
-            sender: userId, //todo: sender and actual user added or removed need to be different.
+            messageType: notifType,
+            modifyingUser: state.current.currentUserId, // This user performed addition or removal action.
+            modifiedUser: userId, // This user got added or removed.
             timestamp: Date.now(),
           },
         },
       });
     },
-    [dispatch]
+    [dispatch, state]
   );
 
   function onCancelClick() {
@@ -87,7 +88,13 @@ function AddUserToExistingConversation() {
           <div className="header">{user.userName}</div>
           <button
             className={`ui button negative ${usersAlreadyInConversation.length <= 1 && 'disabled'}`}
-            onClick={() => dispatchAddRemoveUserInConversation(user.userId, state.current.currentConversationId, false)}
+            onClick={() =>
+              dispatchAddRemoveUserInConversation(
+                user.userId,
+                state.current.currentConversationId,
+                NOTIFICATION_TYPES.MEMBER_LEAVE
+              )
+            }
           >
             -
           </button>
@@ -104,7 +111,13 @@ function AddUserToExistingConversation() {
           <div className="header">{user.userName}</div>
           <button
             className="ui button positive"
-            onClick={() => dispatchAddRemoveUserInConversation(user.userId, state.current.currentConversationId, true)}
+            onClick={() =>
+              dispatchAddRemoveUserInConversation(
+                user.userId,
+                state.current.currentConversationId,
+                NOTIFICATION_TYPES.MEMBER_JOIN
+              )
+            }
           >
             +
           </button>
