@@ -60,8 +60,6 @@ export const tsToDateTime1d1hSensitive = (timestamp) => {
   const tsNow = Date.now();
   const tsDiff = tsNow - timestamp;
 
-  if (tsDiff < 0) return 'Future date!';
-
   const DAY_IN_MS = 60 * 60 * 24 * 1000;
   if (tsDiff / DAY_IN_MS > 1) {
     return new Intl.DateTimeFormat('en-GB', { dateStyle: 'short', timeStyle: 'short' }).format(new Date(timestamp));
@@ -71,8 +69,11 @@ export const tsToDateTime1d1hSensitive = (timestamp) => {
   const hoursAgo = (tsDiff % DAY_IN_MS) / HR_IN_MS;
   const MIN_IN_MS = HR_IN_MS / 60;
   const minutesAgo = ((tsDiff % DAY_IN_MS) % HR_IN_MS) / MIN_IN_MS;
-
-  return hoursAgo > 1 ? `${hoursAgo}hr, ${parseInt(minutesAgo)} min ago` : `${parseInt(minutesAgo)} min ago`;
+  if (hoursAgo > 1) {
+    return `${hoursAgo}hr, ${parseInt(minutesAgo)} min ago`;
+  } else if (minutesAgo > 1) {
+    return `${parseInt(minutesAgo)} min ago`;
+  } else return 'now'; // minutesAgo==0 min
 };
 
 function getUsersObjectsForAConversation(userIds, userState) {

@@ -46,12 +46,8 @@ function MessageElement({ userDetails, message }) {
         <img className="ui avatar image" src={userDetails.imgUrl} alt={`${userDetails.userName} profile`} />
         <div className="content">
           <p className="header">{userDetails.userName}</p>
-          <div className="description">
-            {renderMessageContent(message)}
-            <div className="float right">
-              <b>{tsToDateTime1d1hSensitive(message.timestamp)}</b>
-            </div>
-          </div>
+          <div className="description">{renderMessageContent(message)}</div>
+          <div className="ui label">{tsToDateTime1d1hSensitive(message.timestamp)}</div>
         </div>
       </div>
     );

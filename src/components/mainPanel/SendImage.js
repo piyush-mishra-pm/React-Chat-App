@@ -30,7 +30,7 @@ function SendImage() {
             imgAltText: 'picture sent by me',
             imgUrl,
             sender: currentUserState.currentUserId,
-            timeStamp: Date.now(),
+            timestamp: Date.now(),
           },
         },
       });
