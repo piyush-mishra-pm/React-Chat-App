@@ -42,12 +42,28 @@ function Console() {
 
   return (
     <div
-      className="ui container"
-      style={{ backgroundColor: 'blue', right: 0, left: 0, position: 'absolute', height: '7.5vh', bottom: 0 }}
+      className="ui container "
+      style={{
+        backgroundColor: 'blue',
+        right: 0,
+        left: 0,
+        position: 'absolute',
+        width: '100%',
+        height: '7.5vh',
+        bottom: 0,
+      }}
     >
       <div
         className="ui icon large input"
-        style={{ position: 'absolute', bottom: '1rem', top: '1rem', right: 0, left: 0 }}
+        style={{
+          position: 'absolute',
+          margin: '.1rem',
+          padding: '.05rem',
+          bottom: '1rem',
+          top: '1rem',
+          right: 0,
+          left: 0,
+        }}
       >
         <input ref={inputElement} type="text" placeholder="Type your message here..." onKeyUp={submitOnEnterKey} />
         <Link to="/image" className="ui teal button" style={{ width: '5rem', marginLeft: '.5rem' }}>
@@ -56,7 +72,10 @@ function Console() {
         <button
           className="ui teal button"
           style={{ width: '5rem', marginLeft: '.25rem' }}
-          onClick={() => dispatchTextMessage(inputElement.current.value)}
+          onClick={() => {
+            dispatchTextMessage(inputElement.current.value);
+            inputElement.current.value = '';
+          }}
         >
           <i className="inverted circular envelope link icon"></i>
         </button>
