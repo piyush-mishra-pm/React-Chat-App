@@ -8,4 +8,13 @@ function getUserNameFromUserId(userId, userState) {
   return foundUser ? foundUser.userName : undefined;
 }
 
-export { getUserNameFromUserId, getUserFromUserId };
+function getUserDetailObjectsFromUserIDsArray(userIds, usersState) {
+  const foundUsers = [];
+  for (const userId of userIds) {
+    const matchedUser = usersState.find((user) => user.userId === userId);
+    foundUsers.push(matchedUser);
+  }
+  return foundUsers;
+}
+
+export { getUserNameFromUserId, getUserFromUserId, getUserDetailObjectsFromUserIDsArray };

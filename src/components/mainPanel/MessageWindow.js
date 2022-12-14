@@ -14,11 +14,13 @@ function MessageWindow() {
       (conversation) => conversation.conversationId === currentConversationId
     );
     return (
-      <div className="ui very relaxed list">
+      <div className="ui very relaxed container" style={{ padding: '1rem' }}>
         {currentConversation.messages.map((message, index) => {
           let userId = message.sender;
           let userDetails = getUserFromUserId(userId, users);
-          return <MessageElement userDetails={userDetails} message={message} key={index} />;
+          return (
+            <MessageElement userDetails={userDetails} message={message} key={index} style={{ overflow: 'hidden' }} />
+          );
         })}
       </div>
     );
