@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import COLORS from '../../utils/COLORS';
 
 import { getUserFromUserId } from '../../utils/userUtils';
 import MessageElement from './MessageElement';
@@ -30,13 +31,13 @@ function MessageWindow() {
     <div
       className="ui container"
       style={{
-        backgroundColor: 'red',
+        backgroundColor: COLORS.PRIMARY_LIGHT,
         position: 'absolute',
         zIndex: 10,
-        height: '79.5vh',
+        height: '82vh',
         margin: 0,
         width: '100%',
-        top: '5.5vh',
+        top: '5vh',
         right: 0,
         left: 0,
         overflow: 'auto',

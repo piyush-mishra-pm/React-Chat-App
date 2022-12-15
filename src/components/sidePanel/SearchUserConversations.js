@@ -12,7 +12,7 @@ function SearchUserConversations() {
   );
 
   return (
-    <div className="ui icon input small">
+    <div className="ui icon input fluid">
       <input
         type="text"
         placeholder="Search users in Chats"

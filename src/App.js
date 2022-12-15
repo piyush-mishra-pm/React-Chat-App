@@ -19,11 +19,11 @@ function App() {
     <div>
       <Router history={history}>
         <div>
-          <div style={{ height: '5vh' }}>
-            <Header />
+          <div style={{ height: '3vh' }}>
             <ToastContainer />
+            <Header />
           </div>
-          <div className="ui two column celled grid" style={{ height: '93vh' }}>
+          <div className="ui two column celled grid" style={{ height: '97vh' }}>
             <SidePanel />
             <MainPanel />
           </div>

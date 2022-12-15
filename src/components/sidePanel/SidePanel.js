@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import SidePanelElement from './SidePanelElement';
 import {
@@ -8,6 +7,7 @@ import {
   getSidepanelConversationsContainingMatchingUser,
 } from '../../utils/conversationUtils';
 import SearchUserConversations from './SearchUserConversations';
+import COLORS from '../../utils/COLORS';
 
 function SidePanel() {
   const conversations = useSelector((state) => state.conversations);
@@ -47,13 +47,9 @@ function SidePanel() {
 
   return (
     <div className="four wide column">
-      <SearchUserConversations />
-
-      {/* Create Conversation: */}
-      <Link className="ui labeled icon button" to="/createConversation">
-        <i className="user plus icon"></i>
-        Create Conversation
-      </Link>
+      <div>
+        <SearchUserConversations />
+      </div>
 
       {/*  Render conversations :*/}
       <div
@@ -63,7 +59,7 @@ function SidePanel() {
           bottom: 0,
           right: 0,
           left: 0,
-          backgroundColor: 'green',
+          backgroundColor: COLORS.PRIMARY_MEDIUM,
           overflow: 'auto',
         }}
       >

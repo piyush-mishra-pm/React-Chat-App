@@ -1,0 +1,11 @@
+/* Color Theme Swatches in HSLA */
+const COLORS = {
+  PRIMARY_DARK: '#146152',
+  PRIMARY_MEDIUM: '#44803F',
+  PRIMARY_LIGHT: '#B4CF66',
+  ACCENT_LIGHT: '#FFEC5C',
+  SECONDARY_DARK: '#FF5A33',
+  SECONDARY_LIGHT: '#FF5A33',
+};
+
+export default COLORS;

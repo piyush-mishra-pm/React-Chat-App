@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import ACTION_TYPES from '../../store/ACTION_TYPES';
 import NOTIFICATION_TYPES from '../../store/NOTIFICATION_TYPES';
+import COLORS from '../../utils/COLORS';
 
 function Console() {
   const currentState = useSelector((state) => state.current);
@@ -44,7 +45,7 @@ function Console() {
     <div
       className="ui container "
       style={{
-        backgroundColor: 'blue',
+        backgroundColor: COLORS.PRIMARY_DARK,
         right: 0,
         left: 0,
         position: 'absolute',
@@ -66,11 +67,11 @@ function Console() {
         }}
       >
         <input ref={inputElement} type="text" placeholder="Type your message here..." onKeyUp={submitOnEnterKey} />
-        <Link to="/image" className="ui teal button" style={{ width: '5rem', marginLeft: '.5rem' }}>
+        <Link to="/image" className="ui yellow button" style={{ width: '5rem', marginLeft: '.5rem' }}>
           <i className="inverted circular image link icon"></i>
         </Link>
         <button
-          className="ui teal button"
+          className="ui yellow button"
           style={{ width: '5rem', marginLeft: '.25rem' }}
           onClick={() => {
             dispatchTextMessage(inputElement.current.value);

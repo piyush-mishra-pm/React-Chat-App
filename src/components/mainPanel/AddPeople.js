@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getConversationUsingConversationId } from '../../utils/conversationUtils';
 import { getUserDetailObjectsFromUserIDsArray } from '../../utils/userUtils';
+import COLORS from '../../utils/COLORS';
 
 function AddPeople() {
   const state = useSelector((state) => state);
@@ -10,7 +11,7 @@ function AddPeople() {
     <div
       className="ui"
       style={{
-        backgroundColor: 'grey',
+        backgroundColor: COLORS.PRIMARY_DARK,
         display: 'flex',
         justifyContent: 'space-between',
         right: 0,
@@ -19,22 +20,43 @@ function AddPeople() {
         position: 'absolute',
         height: '5vh',
         top: 0,
+        padding: '.25rem',
       }}
     >
-      <div className="ui label big">{getCurrentConversationName(state)}</div>
-      {/** todo: Enter Participant list */}
-      <div className="ui small horizontal list">
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+        }}
+      >
+        <div>
+          <h1 style={{ color: COLORS.ACCENT_LIGHT }}>{getCurrentConversationName(state)}</h1>
+        </div>
+      </div>
+      <div
+        className="ui small horizontal list"
+        style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}
+      >
         {getUserImages(state).map((user) => (
           <div className="item" key={user.userId}>
             <img className="ui avatar image" alt="profile pic" src={user.imgUrl} />
             <div className="content">
-              <div className="header">{user.userName}</div>
+              <div className="header" style={{ color: COLORS.ACCENT_LIGHT }}>
+                {user.userName}
+              </div>
             </div>
           </div>
         ))}
       </div>
-      <div>
-        <Link className="ui labeled icon button mini" to="/addUsersToExistingConversation">
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+        }}
+      >
+        <Link className="ui yellow labeled icon button mini" to="/addUsersToExistingConversation">
           <i className="user plus icon"></i>
           Modify User List
         </Link>
