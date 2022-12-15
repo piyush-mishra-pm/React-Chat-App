@@ -46,7 +46,7 @@ function SidePanel() {
   }
 
   return (
-    <div className="four wide column">
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
       <div>
         <SearchUserConversations />
       </div>
@@ -54,11 +54,6 @@ function SidePanel() {
       {/*  Render conversations :*/}
       <div
         style={{
-          position: 'absolute',
-          top: '9vh',
-          bottom: 0,
-          right: 0,
-          left: 0,
           backgroundColor: COLORS.PRIMARY_MEDIUM,
           overflow: 'auto',
         }}

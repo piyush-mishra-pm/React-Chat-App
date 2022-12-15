@@ -18,12 +18,12 @@ function App() {
   return (
     <div>
       <Router history={history}>
-        <div>
-          <div style={{ height: '3vh' }}>
-            <ToastContainer />
+        <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', width: '100vw' }}>
+          <ToastContainer />
+          <div>
             <Header />
           </div>
-          <div className="ui two column celled grid" style={{ height: '97vh' }}>
+          <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'stretch', overflow: 'auto' }}>
             <SidePanel />
             <MainPanel />
           </div>

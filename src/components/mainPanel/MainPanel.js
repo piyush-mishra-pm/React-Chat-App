@@ -6,12 +6,10 @@ import Console from './Console';
 
 function MainPanel() {
   return (
-    <div className="twelve wide column">
-      <div className="three row divided grid">
-        <AddPeople />
-        <MessageWindow />
-        <Console />
-      </div>
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <AddPeople />
+      <MessageWindow />
+      <Console />
     </div>
   );
 }

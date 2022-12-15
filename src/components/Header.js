@@ -6,19 +6,20 @@ function Header() {
   return (
     <div
       style={{
-        backgroundColor: COLORS.PRIMARY_DARK,
+        backgroundColor: COLORS.SECONDARY_DARK,
         display: 'flex',
-        height: '100%',
+        height: '4rem',
         flexDirection: 'row',
         justifyContent: 'space-around',
+        width: '100%',
       }}
     >
-      <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
         <h1>React-Redux-Chat</h1>
       </div>
       {/* Create Conversation: */}
-      <div>
-        <Link className="ui labeled icon button" to="/createConversation">
+      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
+        <Link className="ui labeled red icon button" to="/createConversation">
           <i className="user plus icon"></i>
           Create Conversation
         </Link>

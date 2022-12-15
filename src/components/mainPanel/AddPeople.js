@@ -14,13 +14,7 @@ function AddPeople() {
         backgroundColor: COLORS.PRIMARY_DARK,
         display: 'flex',
         justifyContent: 'space-between',
-        right: 0,
-        left: 0,
-        zIndex: 10,
-        position: 'absolute',
-        height: '5vh',
-        top: 0,
-        padding: '.25rem',
+        padding: '.25rem 2rem',
       }}
     >
       <div

@@ -32,14 +32,14 @@ function MessageWindow() {
       className="ui container"
       style={{
         backgroundColor: COLORS.PRIMARY_LIGHT,
-        position: 'absolute',
-        zIndex: 10,
-        height: '82vh',
+        // position: 'absolute',
+        // zIndex: 10,
+        // height: '82vh',
         margin: 0,
         width: '100%',
-        top: '5vh',
-        right: 0,
-        left: 0,
+        //top: '5vh',
+        //right: 0,
+        //left: 0,
         overflow: 'auto',
       }}
     >

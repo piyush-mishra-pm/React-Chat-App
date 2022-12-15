@@ -46,24 +46,13 @@ function Console() {
       className="ui container "
       style={{
         backgroundColor: COLORS.PRIMARY_DARK,
-        right: 0,
-        left: 0,
-        position: 'absolute',
         width: '100%',
-        height: '7.5vh',
-        bottom: 0,
       }}
     >
       <div
-        className="ui icon large input"
+        className="ui icon large input fluid"
         style={{
-          position: 'absolute',
-          margin: '.1rem',
-          padding: '.05rem',
-          bottom: '1rem',
-          top: '1rem',
-          right: 0,
-          left: 0,
+          padding: '1rem',
         }}
       >
         <input ref={inputElement} type="text" placeholder="Type your message here..." onKeyUp={submitOnEnterKey} />
