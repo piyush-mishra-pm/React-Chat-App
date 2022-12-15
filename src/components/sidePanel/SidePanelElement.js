@@ -50,6 +50,7 @@ export default function SidePanelElement(props) {
           maxHeight: '15rem',
           padding: '.25rem',
           overflow: 'hidden',
+          width: '100%',
         }}
       >
         <div className="content">

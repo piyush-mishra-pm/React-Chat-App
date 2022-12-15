@@ -9,7 +9,6 @@ function AddPeople() {
   const state = useSelector((state) => state);
   return (
     <div
-      className="ui"
       style={{
         backgroundColor: COLORS.PRIMARY_DARK,
         display: 'flex',
@@ -50,7 +49,7 @@ function AddPeople() {
           justifyContent: 'center',
         }}
       >
-        <Link className="ui yellow labeled icon button mini" to="/addUsersToExistingConversation">
+        <Link className="ui red labeled icon button small" to="/addUsersToExistingConversation">
           <i className="user plus icon"></i>
           Modify User List
         </Link>

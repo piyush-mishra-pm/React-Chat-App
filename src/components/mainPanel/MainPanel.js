@@ -6,7 +6,16 @@ import Console from './Console';
 
 function MainPanel() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
+        justifyContent: 'stretch',
+        height: '100%',
+        flex: '2',
+      }}
+    >
       <AddPeople />
       <MessageWindow />
       <Console />

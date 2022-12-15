@@ -19,7 +19,7 @@ function Header() {
       </div>
       {/* Create Conversation: */}
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
-        <Link className="ui labeled red icon button" to="/createConversation">
+        <Link className="ui large labeled yellow icon button" to="/createConversation">
           <i className="user plus icon"></i>
           Create Conversation
         </Link>

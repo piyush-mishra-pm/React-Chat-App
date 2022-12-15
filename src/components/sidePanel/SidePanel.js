@@ -46,15 +46,22 @@ function SidePanel() {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <div>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignContent: 'center',
+        flex: '1',
+        backgroundColor: COLORS.PRIMARY_MEDIUM,
+      }}
+    >
+      <div style={{ padding: '1rem' }}>
         <SearchUserConversations />
       </div>
 
       {/*  Render conversations :*/}
       <div
         style={{
-          backgroundColor: COLORS.PRIMARY_MEDIUM,
           overflow: 'auto',
         }}
       >
