@@ -10,10 +10,9 @@ function MainPanel() {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        width: '100%',
+        width: '70%',
         justifyContent: 'stretch',
         height: '100%',
-        flex: '2',
       }}
     >
       <AddPeople />

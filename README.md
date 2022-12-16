@@ -1,7 +1,3 @@
-# Chat App built using React and Redux
-todo:
-- UI update.
-- Conversation where you are not part of, shows greyed out in sidepanel.
 # React Redux Chat App:
 
 A React Redux Chat mockup app, where users can:

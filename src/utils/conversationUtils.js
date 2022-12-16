@@ -69,11 +69,14 @@ export const tsToDateTime1d1hSensitive = (timestamp) => {
   const hoursAgo = (tsDiff % DAY_IN_MS) / HR_IN_MS;
   const MIN_IN_MS = HR_IN_MS / 60;
   const minutesAgo = ((tsDiff % DAY_IN_MS) % HR_IN_MS) / MIN_IN_MS;
+  const secondsAgo = Math.floor(minutesAgo * 60);
   if (hoursAgo > 1) {
     return `${hoursAgo}hr, ${parseInt(minutesAgo)} min ago`;
   } else if (minutesAgo > 1) {
     return `${parseInt(minutesAgo)} min ago`;
-  } else return 'now'; // minutesAgo==0 min
+  } else if (secondsAgo > 5) {
+    return `${secondsAgo} sec ago`;
+  } else return 'now'; // sec==0 min
 };
 
 function getUsersObjectsForAConversation(userIds, userState) {

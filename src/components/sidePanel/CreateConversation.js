@@ -132,7 +132,7 @@ function CreateConversation() {
           />
         </div>
         <div>
-          {conversationsWithSameUsers.length ? 'Conversations with same users:' : ''}
+          {conversationsWithSameUsers.length ? <h3>Conversations with same users:</h3> : ''}
           <div className="ui huge labels">{conversationsWithSameUsers}</div>
         </div>
         {
@@ -140,7 +140,7 @@ function CreateConversation() {
           conversationsWithSameUsers.length ? <hr /> : ''
         }
         <div>
-          {existingUsersInCurrentTempConversation.length ? 'Existing:' : ''}
+          {existingUsersInCurrentTempConversation.length ? <h3>Existing:</h3> : ''}
           <div className="ui huge labels">{existingUsersInCurrentTempConversation}</div>
         </div>
         {
@@ -148,7 +148,7 @@ function CreateConversation() {
           existingUsersInCurrentTempConversation.length && usersOutOfCurrentTempConversation.length ? <hr /> : ''
         }
         <div>
-          {usersOutOfCurrentTempConversation.length ? 'Add:' : ''}
+          {usersOutOfCurrentTempConversation.length ? <h3>Add:</h3> : ''}
           <div className="ui huge labels">{usersOutOfCurrentTempConversation}</div>
         </div>
       </div>

@@ -51,7 +51,7 @@ function SidePanel() {
         display: 'flex',
         flexDirection: 'column',
         alignContent: 'center',
-        flex: '1',
+        width: '30%',
         backgroundColor: COLORS.PRIMARY_MEDIUM,
       }}
     >

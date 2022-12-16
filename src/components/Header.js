@@ -8,7 +8,7 @@ function Header() {
       style={{
         backgroundColor: COLORS.SECONDARY_DARK,
         display: 'flex',
-        height: '4rem',
+        height: '100%',
         flexDirection: 'row',
         justifyContent: 'space-around',
         width: '100%',

@@ -12,6 +12,7 @@ function AddPeople() {
       style={{
         backgroundColor: COLORS.PRIMARY_DARK,
         display: 'flex',
+        flexFlow: 'row wrap',
         justifyContent: 'space-between',
         padding: '.25rem 2rem',
       }}

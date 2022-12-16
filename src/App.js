@@ -20,10 +20,18 @@ function App() {
       <Router history={history}>
         <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', width: '100vw' }}>
           <ToastContainer />
-          <div>
+          <div style={{ height: '7%' }}>
             <Header />
           </div>
-          <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'stretch', overflow: 'auto' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'stretch',
+              height: '93%',
+              overflow: 'auto',
+            }}
+          >
             <SidePanel />
             <MainPanel />
           </div>
