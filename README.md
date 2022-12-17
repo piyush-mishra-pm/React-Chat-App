@@ -19,7 +19,7 @@ Hosted app links:
 
 ### Video Walkthrough:
 
-[![Video Walkthrough](https://img.youtube.com/vi/v7egKo4q1vM/maxresdefault.jpg)](https://youtu.be/v7egKo4q1vM)
+[![Video Walkthrough](https://img.youtube.com/vi/YX9t-2fIacc/maxresdefault.jpg)](https://youtu.be/YX9t-2fIacc)
 
 ---
 
