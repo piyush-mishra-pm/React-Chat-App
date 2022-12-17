@@ -82,7 +82,7 @@ function BotComponent() {
       } else {
         clearInterval(interval);
       }
-    }, 10000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [dispatchBotAction, state]);
 

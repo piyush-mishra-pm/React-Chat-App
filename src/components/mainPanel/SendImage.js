@@ -49,10 +49,10 @@ function SendImage() {
   function renderModalActions() {
     return (
       <div>
-        <button className="ui button positive" onClick={onCancelClick}>
+        <button className="ui button negative" onClick={onCancelClick}>
           Cancel
         </button>
-        <Link to="/" className={`ui ${isImgUrlValid ? '' : 'disabled'} button`} onClick={onConfirmClick}>
+        <Link to="/" className={`ui ${isImgUrlValid ? 'positive' : 'disabled'} button`} onClick={onConfirmClick}>
           Confirm
         </Link>
       </div>

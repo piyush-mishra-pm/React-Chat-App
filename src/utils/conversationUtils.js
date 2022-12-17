@@ -71,9 +71,9 @@ export const tsToDateTime1d1hSensitive = (timestamp) => {
   const minutesAgo = ((tsDiff % DAY_IN_MS) % HR_IN_MS) / MIN_IN_MS;
   const secondsAgo = Math.floor(minutesAgo * 60);
   if (hoursAgo > 1) {
-    return `${hoursAgo}hr, ${parseInt(minutesAgo)} min ago`;
+    return `${Math.floor(hoursAgo)}hr, ${Math.floor(minutesAgo)} min ago`;
   } else if (minutesAgo > 1) {
-    return `${parseInt(minutesAgo)} min ago`;
+    return `${Math.floor(minutesAgo)} min ago`;
   } else if (secondsAgo > 5) {
     return `${secondsAgo} sec ago`;
   } else return 'now'; // sec==0 min
